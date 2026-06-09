@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Mesas</title>
+  <link rel="stylesheet" href="style-mesas.css">
+</head>
+<body>
+  <!-- Cabeçalho -->
+  <header>
+    <div class="logo">
+      <img src="img/logo.png" alt="Logo Restaurante">
+      <h1>Churrascaria Querência</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="produtos.html">Produtos</a></li>
+        <li><a href="mesas.html">Mesas</a></li>
+        <li><a href="#">Pedidos</a></li>
+        <li><a href="#">Relatórios</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Área de cadastro de mesas -->
+  <section class="cadastro">
+    <h2>Cadastro de Mesas</h2>
+    <form class="form-cadastro">
+      <label for="numero">Número da Mesa:</label>
+      <input type="number" id="numero" name="numero" placeholder="Ex: 5">
+
+      <label for="lugares">Quantidade de Lugares:</label>
+      <input type="number" id="lugares" name="lugares" placeholder="Ex: 4">
+
+      <label for="status">Status:</label>
+      <select id="status" name="status">
+        <option value="disponivel">Disponível</option>
+        <option value="ocupada">Ocupada</option>
+        <option value="reservada">Reservada</option>
+      </select>
+
+      <button type="submit">Cadastrar Mesa</button>
+    </form>
+
+    <!-- Lista de mesas -->
+    <div class="lista-mesas">
+      <h3>Mesas Cadastradas</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Número</th>
+            <th>Lugares</th>
+            <th>Status</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>4</td>
+            <td>Disponível</td>
+            <td>
+              <button class="editar">Editar</button>
+              <button class="excluir">Excluir</button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>6</td>
+            <td>Ocupada</td>
+            <td>
+              <button class="editar">Editar</button>
+              <button class="excluir">Excluir</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>&copy; 2026 - Sistema de Controle de Restaurante | Cristian & João</p>
+  </footer>
+</body>
+</html>
