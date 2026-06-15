@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="mainpage/css/style.css">
 </head>
 <body>
   <div class="page-overlay"></div>
@@ -16,7 +16,7 @@
   <header class="topbar">
     <div class="brand">
       <div class="brand-logo">
-        <img src="logo.jpeg" alt="Logo Churrascaria Querência">
+        <img src="src/logo.jpeg" alt="Logo Churrascaria Querência">
       </div>
       <div class="brand-copy">
         <span>CHURRASCARIA</span>
@@ -129,37 +129,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
-  
-  <script>
-    // Eventos dos cards
-    document.querySelectorAll('.card').forEach((card, index) => {
-      card.style.cursor = 'pointer';
-      card.addEventListener('click', () => {
-        const titles = ['Produtos', 'Mesas', 'Pedidos', 'Relatórios'];
-        const links = [
-          'produtos/index.html',
-          'mesas/index.html',
-          'pedidos/index.html',
-          'relatorios/index.html'
-        ];
-        
-        const title = titles[index];
-        const link = links[index];
-        
-        console.log(`Redirecionando para ${title}...`);
-        window.location.href = link;
-      });
-      
-      // Efeito visual ao passar mouse
-      card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-8px)';
-      });
-      
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0)';
-      });
-    });
-  </script>
+  <script src="mainpage/js/script.js"></script>
 </body>
 </html>
