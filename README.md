@@ -2,7 +2,7 @@
 
 Um sistema completo de gerenciamento de restaurante desenvolvido em **JavaScript Vanilla** (sem frameworks ou bibliotecas externas).
 
-## 📌 Características
+## 📌 Características Principais
 
 ✅ **CRUD de Produtos** - Adicionar, editar, remover, pesquisar  
 ✅ **CRUD de Mesas** - Gerenciar mesas com status  
@@ -13,53 +13,160 @@ Um sistema completo de gerenciamento de restaurante desenvolvido em **JavaScript
 ✅ **Interface Premium** - Dark theme com cores quentes  
 ✅ **Responsivo** - Funciona em desktop e mobile  
 
+---
+
+## 🎯 O que o Sistema Faz
+
+### 📦 Gerenciamento de Produtos
+- Cadastrar novo produto (nome, categoria, preço, descrição)
+- Editar produtos existentes
+- Apagar produtos do catálogo
+- Visualizar lista completa de produtos
+
+### 🪑 Gerenciamento de Mesas
+- Cadastrar novas mesas com número, quantidade de lugares e status
+- Editar informações da mesa
+- Apagar mesas do sistema
+- Controlar status das mesas (Livre, Ocupada, Reservada)
+- Visualizar todas as mesas em tabela com status visual
+
+### 📋 Sistema de Pedidos
+- Selecionar mesa e abrir novo pedido
+- Escolher produtos e adicionar ao pedido com quantidade
+- Remover itens do pedido
+- Visualizar resumo em tempo real com cálculo automático do total
+- Atualizar status da mesa conforme o pedido está aberto ou fechado
+- Finalizar venda com múltiplas formas de pagamento (Dinheiro, Pix, Cartão)
+- Calcular troco automaticamente
+- Registrar todas as vendas realizadas
+
+### 📊 Relatórios e Análises
+- Visualizar total de produtos, mesas e vendas
+- Acompanhar status de todas as mesas
+- Ver produto mais vendido
+- Analisar formas de pagamento utilizadas
+- Calcular faturamento total e ticket médio
+
+### 💾 Armazenamento de Dados
+- Salvar automaticamente todos os dados no navegador
+- Carregar dados ao abrir o sistema
+- Exportar dados para backup em JSON
+- Limpar todos os dados quando necessário
+
+---
+
+## 🏗️ Como o Sistema Funciona
+
+### 👤 Experiência do Usuário
+- **Simples e Intuitiva**: Botões claros, mensagens em português
+- **Feedback Imediato**: Alertas confirmam cada ação
+- **Visual Limpo**: Dark theme sofisticado, fácil para os olhos
+- **Sem Complicações**: Interface organizada, formulários objetivos
+
+### ⚡ Desempenho
+- **Totalmente Offline**: Funciona 100% no navegador, sem dependência de servidor
+- **Rápido**: Operações instantâneas no LocalStorage
+- **Leve**: Sem frameworks pesados, apenas JavaScript puro
+
+### 🔒 Dados e Confiabilidade
+- **Persistente**: Dados salvos automaticamente após cada operação
+- **Seguro**: Armazenado no navegador do usuário, dados nunca saem do computador
+- **Validado**: Campos obrigatórios são checados antes de salvar
+- **Recuperável**: Pode exportar dados em qualquer momento
+
+### 🌍 Compatibilidade
+- **Funciona em**: Chrome, Firefox, Safari, Edge e navegadores modernos
+- **Desktop e Mobile**: Responsivo, adapta-se a qualquer tela
+- **Padrão Web**: Usa apenas HTML5, CSS3 e JavaScript vanilla
+
+### 📱 Características Técnicas
+- **LocalStorage**: ~5-10MB de espaço para dados
+- **Sem Login**: Acesso direto, sem autenticação
+- **Sem Banco de Dados**: Tudo funciona no navegador
+- **Linguagem**: 100% em JavaScript Vanilla
+
+---
+
 ## 📂 Estrutura do Projeto
 
 ```
 proj-prova-1/
-├── index.html                    # Página inicial/Dashboard
-├── script.js                     # 🔥 Lógica principal do sistema
-├── SCRIPT_DOCUMENTACAO.md        # Documentação das funções
-├── EXEMPLOS_PRATICOS.js          # Exemplos de uso
-├── README.md                     # Este arquivo
-│
-├── css/
-│   └── style.css                # Estilos premium
+├── index.html                         # Página inicial/Dashboard
+├── mainpage/
+│   ├── js/
+│   │   └── script.js                 # Lógica principal do sistema
+│   └── css/
+│       └── style.css                 # Estilos premium
 │
 ├── produtos/
-│   ├── index.html               # Página de produtos (a implementar)
-│   └── style.css                # Estilos específicos
+│   ├── index.html                    # Página de gerenciamento de produtos
+│   ├── js/
+│   │   └── script.js                 # Lógica de produtos
+│   └── css/
+│       └── style.css                 # Estilos de produtos
 │
 ├── mesas/
-│   ├── index.html               # Página de mesas (a implementar)
-│   └── style.css                # Estilos específicos
+│   ├── index.html                    # Página de gerenciamento de mesas
+│   ├── js/
+│   │   └── script.js                 # Lógica de mesas
+│   └── css/
+│       └── style.css                 # Estilos de mesas
 │
-└── pedidos/
-    └── index.html               # Página de pedidos (a implementar)
+├── pedidos/
+│   ├── index.html                    # Página de controle de pedidos
+│   ├── js/
+│   │   └── script.js                 # Lógica de pedidos
+│   └── css/
+│       └── style.css                 # Estilos de pedidos
+│
+├── src/
+│   └── logo.jpeg                     # Logo da Churrascaria
+│
+├── SCRIPT_DOCUMENTACAO.md             # Documentação das funções
+├── EXEMPLOS_PRATICOS.js              # Exemplos de uso
+└── README.md                         # Este arquivo
 ```
 
 ## 🚀 Como Começar
 
-### 1. Abrir o Projeto
+### 1️⃣ Abrir o Projeto
+
+**Opção A - Direto no Navegador:**
+- Simplesmente clique duas vezes em `index.html`
+- Ou arraste o arquivo para o navegador
+
+**Opção B - Com Servidor Local (Recomendado):**
 ```bash
-# Simplesmente abra o arquivo index.html no navegador
-# Ou execute um servidor local:
 # Python 3:
 python -m http.server 8000
 
-# Acesse:
+# Ou com Node.js:
+npx http-server
+
+# Depois acesse:
 http://localhost:8000
 ```
 
-### 2. Testar o Sistema
-Abra o Console (F12) e execute:
-```javascript
-testarSistema();
-```
+### 2️⃣ Navegar no Sistema
+- **Início**: Dashboard com visão geral
+- **Produtos**: Gerenciar cardápio
+- **Mesas**: Controlar mesas do restaurante
+- **Pedidos**: Registrar vendas
+- **Relatórios**: Ver faturamento e análises
 
-### 3. Ver Relatórios
+### 3️⃣ Testar Funcionalidades (Opcional)
+
+Abra o Console do navegador (F12) e execute:
+
 ```javascript
+// Rodar testes automáticos
+testarSistema();
+
+// Ver relatórios no console
 exibirRelatorios();
+
+// Exportar dados (faz download de arquivo JSON)
+exportarDados();
 ```
 
 ## 📖 Documentação Completa
@@ -118,15 +225,14 @@ adicionarItemPedido(4, 1);
 fecharConta({ formaPagamento: 'Pix' });
 ```
 
-## ⚙️ Requisitos Técnicos
+## 💻 Stack Tecnológico
 
-- ✅ **JavaScript Vanilla** (sem frameworks)
-- ✅ **HTML5**
-- ✅ **CSS3** (com suporte a Grid e Flexbox)
-- ✅ **LocalStorage API**
-- ✅ **Font Awesome 6.4.0** (CDN)
-- ✅ **Google Fonts** (CDN)
-- ✅ **Navegador moderno** (Chrome, Firefox, Safari, Edge)
+- **Frontend**: HTML5, CSS3 (Grid/Flexbox), JavaScript Vanilla
+- **Armazenamento**: LocalStorage API
+- **Ícones**: Font Awesome 6.4.0 (CDN)
+- **Fontes**: Google Fonts (Playfair Display, Cinzel, Inter, Montserrat)
+- **Navegadores**: Chrome, Firefox, Safari, Edge e compatíveis
+- **Frameworks**: ❌ Nenhum (JavaScript puro!)
 
 ## 📝 Arquivos Principais
 
@@ -139,10 +245,37 @@ fecharConta({ formaPagamento: 'Pix' });
 | `EXEMPLOS_PRATICOS.js` | 12 exemplos de uso |
 | `README.md` | Este arquivo |
 
-## 👨‍💻 Desenvolvido por
+## � Correções e Melhorias Recentes
+
+✅ **Navegação Corrigida**: Links da navbar agora redirecionam corretamente  
+✅ **Caminhos de Recursos**: CSS, JS e logo carregam do caminho correto  
+✅ **Funções de Mesas**: Editar e apagar mesas implementados e funcionando  
+✅ **Carregamento de Dados**: LocalStorage carregado antes de renderizar páginas  
+✅ **Status de Mesas**: Agora persiste corretamente entre recarregamentos  
+
+## 📞 Próximas Melhorias Planejadas
+
+- 📄 Página de relatórios HTML dedicada (em vez de console)
+- 🖨️ Impressão de comandas
+- 📱 App mobile nativo (React Native)
+- 🔐 Autenticação de usuários
+- 📊 Gráficos interativos
+- 🌐 Integração com backend (opcional)
+
+---
+
+## �👨‍💻 Desenvolvido por
 
 **Cristian & João** - Projeto Acadêmico 2026
 
 ---
 
-**🍖 Sistema de Controle de Restaurante - Churrascaria Querência**
+<div align="center">
+
+### 🍖 Sistema de Controle de Restaurante - Churrascaria Querência 🍖
+
+**Desenvolvido com ❤️ em JavaScript Vanilla**
+
+*Para gerenciar seu restaurante sem complicações*
+
+</div>
