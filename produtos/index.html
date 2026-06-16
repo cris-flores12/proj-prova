@@ -1,109 +1,155 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Produtos | Churrascaria Querência</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <div class="page-overlay"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Produtos | Churrascaria Querência</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="page-overlay"></div>
 
-  <header class="topbar">
-    <div class="brand">
-      <div class="brand-logo">
-        <img src="../src/logo.jpeg" alt="Logo Churrascaria Querência" style="max-width: 50px;">
-      </div>
-      <div class="brand-copy">
-        <span>CHURRASCARIA</span>
-        <h1>QUERÊNCIA</h1>
-      </div>
-    </div>
-
-    <nav class="navbar">
-      <ul>
-        <li><a href="../index.html"><i class="fas fa-home"></i> Início</a></li>
-        <li><a href="#" class="active"><i class="fas fa-drumstick-bite"></i> Produtos</a></li>
-        <li><a href="../mesas/index.html"><i class="fas fa-table"></i> Mesas</a></li>
-        <li><a href="../pedidos/index.html"><i class="fas fa-clipboard"></i> Pedidos</a></li>
-        <li><a href="#"><i class="fas fa-chart-line"></i> Relatórios</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <div class="page-content">
-    <a href="../index.html" class="back-button">
-      <i class="fas fa-arrow-left"></i> Voltar
-    </a>
-
-    <div class="page-header">
-      <h1>Gerenciar Produtos</h1>
-      <p>Cadastre, edite e controle todos os produtos do restaurante</p>
-    </div>
-
-    <!-- Formulário -->
-    <div class="form-container">
-      <h2><i class="fas fa-plus-circle"></i> Novo Produto</h2>
-      <form id="formProduto">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="nomeProduto">Nome do Produto</label>
-            <input type="text" id="nomeProduto" placeholder="Ex: Churrasco Misto" required>
-          </div>
-          <div class="form-group">
-            <label for="categoriaProduto">Categoria</label>
-            <input type="text" id="categoriaProduto" placeholder="Ex: Churrasco" required>
-          </div>
-          <div class="form-group">
-            <label for="precoProduto">Preço (R$)</label>
-            <input type="number" id="precoProduto" placeholder="89.90" step="0.01" min="0" required>
-          </div>
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-logo">
+          <img
+            src="../src/logo.jpeg"
+            alt="Logo Churrascaria Querência"
+            style="max-width: 50px"
+          />
         </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="descricaoProduto">Descrição</label>
-            <textarea id="descricaoProduto" placeholder="Descreva o produto..."></textarea>
-          </div>
-        </div>
-        <div class="button-group">
-          <button type="submit" class="btn btn-primary">
-            <i class="fas fa-save"></i> Salvar Produto
-          </button>
-          <button type="reset" class="btn btn-secondary">
-            <i class="fas fa-redo"></i> Limpar
-          </button>
-        </div>
-      </form>
-    </div>
-
-    <!-- Tabela de Produtos -->
-    <div class="table-container">
-      <div class="table-header">
-        <h2><i class="fas fa-list"></i> Produtos Cadastrados</h2>
-      </div>
-      <div id="tabelaProdutos">
-        <div class="empty-state">
-          <i class="fas fa-inbox"></i>
-          <p>Nenhum produto cadastrado ainda</p>
+        <div class="brand-copy">
+          <span>CHURRASCARIA</span>
+          <h1>QUERÊNCIA</h1>
         </div>
       </div>
-    </div>
-  </div>
 
-  <footer class="footer-bar">
-    <div class="footer-inner">
-      <span class="footer-icon">
-        <i class="fas fa-fire"></i>
-      </span>
-      <p>© 2026 - Sistema de Controle de Restaurante | Cristian & João</p>
-    </div>
-  </footer>
+      <nav class="navbar">
+        <ul>
+          <li>
+            <a href="../index.html"><i class="fas fa-home"></i> Início</a>
+          </li>
+          <li>
+            <a href="#" class="active"
+              ><i class="fas fa-drumstick-bite"></i> Produtos</a
+            >
+          </li>
+          <li>
+            <a href="../mesas/index.html"><i class="fas fa-table"></i> Mesas</a>
+          </li>
+          <li>
+            <a href="../pedidos/index.html"
+              ><i class="fas fa-clipboard"></i> Pedidos</a
+            >
+          </li>
+          <li>
+            <a href="../relatorio/index.html"
+              ><i class="fas fa-chart-line"></i> Relatórios</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-  <script src="../mainpage/js/script.js"></script>
-  <script src="js/script.js"></script>
-</body>
+    <div class="page-content">
+      <a href="../index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i> Voltar
+      </a>
+
+      <div class="page-header">
+        <h1>Gerenciar Produtos</h1>
+        <p>Cadastre, edite e controle todos os produtos do restaurante</p>
+      </div>
+
+      <!-- Formulário -->
+      <div class="form-container">
+        <h2><i class="fas fa-plus-circle"></i> Novo Produto</h2>
+        <form id="formProduto">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nomeProduto">Nome do Produto</label>
+              <input
+                type="text"
+                id="nomeProduto"
+                placeholder="Ex: Churrasco Misto"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="categoriaProduto">Categoria</label>
+              <input
+                type="text"
+                id="categoriaProduto"
+                placeholder="Ex: Churrasco"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="precoProduto">Preço (R$)</label>
+              <input
+                type="number"
+                id="precoProduto"
+                placeholder="89.90"
+                step="0.01"
+                min="0"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="descricaoProduto">Descrição</label>
+              <textarea
+                id="descricaoProduto"
+                placeholder="Descreva o produto..."
+              ></textarea>
+            </div>
+          </div>
+          <div class="button-group">
+            <button type="submit" class="btn btn-primary">
+              <i class="fas fa-save"></i> Salvar Produto
+            </button>
+            <button type="reset" class="btn btn-secondary">
+              <i class="fas fa-redo"></i> Limpar
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Tabela de Produtos -->
+      <div class="table-container">
+        <div class="table-header">
+          <h2><i class="fas fa-list"></i> Produtos Cadastrados</h2>
+        </div>
+        <div id="tabelaProdutos">
+          <div class="empty-state">
+            <i class="fas fa-inbox"></i>
+            <p>Nenhum produto cadastrado ainda</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer-bar">
+      <div class="footer-inner">
+        <span class="footer-icon">
+          <i class="fas fa-fire"></i>
+        </span>
+        <p>© 2026 - Sistema de Controle de Restaurante | Cristian & João</p>
+      </div>
+    </footer>
+
+    <script src="../mainpage/js/script.js"></script>
+    <script src="js/script.js"></script>
+  </body>
 </html>

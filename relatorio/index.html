@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mesas | Churrascaria Querência</title>
+    <title>Relatórios | Churrascaria Querência</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,20 +15,14 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link rel="stylesheet" href="css/style.css" />
-    <style></style>
   </head>
-
   <body>
     <div class="page-overlay"></div>
 
     <header class="topbar">
       <div class="brand">
         <div class="brand-logo">
-          <img
-            src="../src/logo.jpeg"
-            alt="Logo Churrascaria Querência"
-            style="max-width: 50px"
-          />
+          <img src="../src/logo.jpeg" alt="Logo Churrascaria Querência" />
         </div>
         <div class="brand-copy">
           <span>CHURRASCARIA</span>
@@ -47,7 +41,7 @@
             >
           </li>
           <li>
-            <a href="#" class="active"><i class="fas fa-table"></i> Mesas</a>
+            <a href="../mesas/index.html"><i class="fas fa-table"></i> Mesas</a>
           </li>
           <li>
             <a href="../pedidos/index.html"
@@ -55,7 +49,7 @@
             >
           </li>
           <li>
-            <a href="../relatorio/index.html"
+            <a href="#" class="active"
               ><i class="fas fa-chart-line"></i> Relatórios</a
             >
           </li>
@@ -69,66 +63,65 @@
       </a>
 
       <div class="page-header">
-        <h1>Gerenciar Mesas</h1>
-        <p>Cadastre, edite e controle o status de todas as mesas</p>
+        <h1>Dashboard de Vendas</h1>
+        <p>
+          Confira o faturamento, ticket médio e histórico das mesas encerradas
+        </p>
       </div>
 
-      <!-- Formulário -->
-      <div class="form-container">
-        <h2><i class="fas fa-plus-circle"></i> Nova Mesa</h2>
-        <form id="formMesa">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="numeroMesa">Número da Mesa</label>
-              <input
-                type="number"
-                id="numeroMesa"
-                placeholder="Ex: 5"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <label for="lugaresMesa">Quantidade de Lugares</label>
-              <input
-                type="number"
-                id="lugaresMesa"
-                placeholder="Ex: 4"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <label for="statusMesa">Status</label>
-              <select id="statusMesa" required>
-                <option value="">Selecione...</option>
-                <option value="Livre">Livre</option>
-                <option value="Ocupada">Ocupada</option>
-                <option value="Reservada">Reservada</option>
-              </select>
-            </div>
+      <section class="dashboard-panel">
+        <div class="metrics-grid">
+          <div class="metric-card red">
+            <h3>
+              <i class="fa-solid fa-money-bill-wave"></i> Faturamento Bruto
+            </h3>
+            <p id="metric-faturamento">R$ 0,00</p>
           </div>
-          <div class="button-group">
-            <button type="submit" class="btn btn-primary">
-              <i class="fas fa-save"></i> Salvar Mesa
-            </button>
-            <button type="reset" class="btn btn-secondary">
-              <i class="fas fa-redo"></i> Limpar
-            </button>
+          <div class="metric-card amber">
+            <h3><i class="fa-solid fa-utensils"></i> Mesas Encerradas</h3>
+            <p id="metric-quantidade">0</p>
           </div>
-        </form>
-      </div>
+          <div class="metric-card brown">
+            <h3>
+              <i class="fa-solid fa-calculator"></i> Ticket Médio por Mesa
+            </h3>
+            <p id="metric-ticket">R$ 0,00</p>
+          </div>
+        </div>
 
-      <!-- Tabela de Mesas -->
-      <div class="table-container">
-        <div class="table-header">
-          <h2><i class="fas fa-list"></i> Mesas Cadastradas</h2>
-        </div>
-        <div id="tabelaMesas">
-          <div class="empty-state">
-            <i class="fas fa-inbox"></i>
-            <p>Nenhuma mesa cadastrada ainda</p>
+        <div class="search-container">
+          <label for="search-input">Buscar no histórico</label>
+          <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Digite a mesa ou a forma de pagamento..."
+              oninput="filtrarHistorico()"
+            />
           </div>
         </div>
-      </div>
+
+        <div class="table-container">
+          <div class="table-header">
+            <h2><i class="fas fa-list"></i> Histórico de Fechamentos</h2>
+          </div>
+          <div class="table-responsive">
+            <table id="tabela-historico">
+              <thead>
+                <tr>
+                  <th>Mesa</th>
+                  <th>Forma de Pagamento</th>
+                  <th>Valor Total</th>
+                  <th>Data/Hora</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="corpo-tabela-historico"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
     </div>
 
     <footer class="footer-bar">

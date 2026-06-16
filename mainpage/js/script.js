@@ -756,11 +756,13 @@ function configurarNavegacao() {
     const links = Array.from(document.querySelectorAll('.navbar a'));
     const sections = links
         .map(link => link.getAttribute('href'))
-        .filter(href => href && href.startsWith('#'))
+        .filter(href => href && href.startsWith('#') && href !== '#')
         .map(href => document.querySelector(href))
         .filter(Boolean);
 
     function atualizarAtivoPorScroll() {
+        if (sections.length === 0) return;
+
         const offset = 120;
         const scrollPosition = window.scrollY + offset;
         let currentSection = sections[0];
@@ -772,17 +774,24 @@ function configurarNavegacao() {
         });
 
         links.forEach(link => {
-            link.classList.toggle('active', link.getAttribute('href') === `#${currentSection.id}`);
+            const href = link.getAttribute('href');
+            if (href && href !== '#' && href.startsWith('#')) {
+                link.classList.toggle('active', href === `#${currentSection.id}`);
+            }
         });
     }
 
     links.forEach(link => {
         link.addEventListener('click', (event) => {
+            const href = link.getAttribute('href');
+            if (!href || href === '#') {
+                return;
+            }
+
             links.forEach(l => l.classList.remove('active'));
             link.classList.add('active');
 
-            const href = link.getAttribute('href');
-            if (href && href.startsWith('#')) {
+            if (href.startsWith('#')) {
                 const target = document.querySelector(href);
                 if (target) {
                     const offset = 90;

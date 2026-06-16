@@ -1,159 +1,206 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pedidos | Churrascaria Querência</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pedidos | Churrascaria Querência</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css">
-</head>
+  <body>
+    <div class="page-overlay"></div>
 
-<body>
-  <div class="page-overlay"></div>
-
-  <header class="topbar">
-    <div class="brand">
-      <div class="brand-logo">
-        <img src="../src/logo.jpeg" alt="Logo Churrascaria Querência" style="max-width: 50px;">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-logo">
+          <img
+            src="../src/logo.jpeg"
+            alt="Logo Churrascaria Querência"
+            style="max-width: 50px"
+          />
+        </div>
+        <div class="brand-copy">
+          <span>CHURRASCARIA</span>
+          <h1>QUERÊNCIA</h1>
+        </div>
       </div>
-      <div class="brand-copy">
-        <span>CHURRASCARIA</span>
-        <h1>QUERÊNCIA</h1>
+
+      <nav class="navbar">
+        <ul>
+          <li>
+            <a href="../index.html"><i class="fas fa-home"></i> Início</a>
+          </li>
+          <li>
+            <a href="../produtos/index.html"
+              ><i class="fas fa-drumstick-bite"></i> Produtos</a
+            >
+          </li>
+          <li>
+            <a href="../mesas/index.html"><i class="fas fa-table"></i> Mesas</a>
+          </li>
+          <li>
+            <a href="#" class="active"
+              ><i class="fas fa-clipboard"></i> Pedidos</a
+            >
+          </li>
+          <li>
+            <a href="../relatorio/index.html"
+              ><i class="fas fa-chart-line"></i> Relatórios</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="page-content">
+      <a href="../index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i> Voltar
+      </a>
+
+      <div class="page-header">
+        <h1>Sistema de Pedidos</h1>
+        <p>Abra um pedido, adicione itens e finalize a venda</p>
+      </div>
+
+      <div class="grid-2">
+        <!-- Painel Esquerdo: Criar Pedido -->
+        <div class="form-container">
+          <h2><i class="fas fa-plus-circle"></i> Novo Pedido</h2>
+
+          <div class="form-row-full">
+            <div class="form-group">
+              <label for="mesaPedido">Selecione a Mesa</label>
+              <select id="mesaPedido" required>
+                <option value="">-- Escolha uma mesa --</option>
+              </select>
+            </div>
+          </div>
+
+          <button
+            id="btnCriarPedido"
+            class="btn btn-primary"
+            style="width: 100%; margin-bottom: 20px"
+          >
+            <i class="fas fa-folder-open"></i> Abrir Pedido
+          </button>
+
+          <div class="info-box" id="infoPedido" style="display: none">
+            Pedido aberto para: <strong id="mesaPedidoInfo"></strong>
+          </div>
+
+          <h3 style="color: var(--gold); margin-top: 30px; margin-bottom: 15px">
+            <i class="fas fa-utensils"></i> Adicionar Itens
+          </h3>
+
+          <div class="form-row-full">
+            <div class="form-group">
+              <label for="produtoPedido">Produto</label>
+              <select id="produtoPedido">
+                <option value="">-- Escolha um produto --</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="quantidadePedido">Quantidade</label>
+              <input type="number" id="quantidadePedido" value="1" min="1" />
+            </div>
+            <div class="form-group">
+              <label for="precoProduto">Preço</label>
+              <input
+                type="text"
+                id="precoProduto"
+                readonly
+                style="background: rgba(200, 155, 60, 0.1)"
+              />
+            </div>
+          </div>
+
+          <button id="btnAdicionarItem" class="btn btn-add" style="width: 100%">
+            <i class="fas fa-plus"></i> Adicionar ao Pedido
+          </button>
+        </div>
+
+        <!-- Painel Direito: Resumo do Pedido -->
+        <div class="form-container">
+          <h2><i class="fas fa-receipt"></i> Resumo do Pedido</h2>
+
+          <div id="pedidoResumo">
+            <div class="info-box">
+              <i class="fas fa-info-circle"></i> Abra um pedido para começar
+            </div>
+          </div>
+
+          <div
+            class="total-section"
+            id="totalSection"
+            style="
+              display: none;
+              flex-direction: column;
+              align-items: flex-end;
+              gap: 20px;
+            "
+          >
+            <div style="width: 100%; text-align: right">
+              <p style="margin-bottom: 10px">Total do Pedido:</p>
+              <div class="total-amount" id="totalPedido">R$ 0,00</div>
+            </div>
+
+            <div style="width: 100%; display: flex; gap: 10px">
+              <button
+                id="btnLimparPedido"
+                class="btn btn-secondary"
+                style="flex: 1"
+              >
+                <i class="fas fa-redo"></i> Novo Pedido
+              </button>
+              <button
+                id="btnFinalizarVenda"
+                class="btn btn-primary"
+                style="flex: 1"
+              >
+                <i class="fas fa-check"></i> Finalizar Venda
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabela de Pedidos Abertos -->
+      <div class="table-container">
+        <div class="table-header">
+          <h2><i class="fas fa-list"></i> Pedidos Abertos</h2>
+        </div>
+        <div id="tabelaPedidos">
+          <div class="empty-state">
+            <i class="fas fa-inbox"></i>
+            <p>Nenhum pedido aberto</p>
+          </div>
+        </div>
       </div>
     </div>
 
-    <nav class="navbar">
-      <ul>
-        <li><a href="../index.html"><i class="fas fa-home"></i> Início</a></li>
-        <li><a href="../produtos/index.html"><i class="fas fa-drumstick-bite"></i> Produtos</a></li>
-        <li><a href="../mesas/index.html"><i class="fas fa-table"></i> Mesas</a></li>
-        <li><a href="#" class="active"><i class="fas fa-clipboard"></i> Pedidos</a></li>
-        <li><a href="#"><i class="fas fa-chart-line"></i> Relatórios</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <div class="page-content">
-    <a href="../index.html" class="back-button">
-      <i class="fas fa-arrow-left"></i> Voltar
-    </a>
-
-    <div class="page-header">
-      <h1>Sistema de Pedidos</h1>
-      <p>Abra um pedido, adicione itens e finalize a venda</p>
-    </div>
-
-    <div class="grid-2">
-      <!-- Painel Esquerdo: Criar Pedido -->
-      <div class="form-container">
-        <h2><i class="fas fa-plus-circle"></i> Novo Pedido</h2>
-
-        <div class="form-row-full">
-          <div class="form-group">
-            <label for="mesaPedido">Selecione a Mesa</label>
-            <select id="mesaPedido" required>
-              <option value="">-- Escolha uma mesa --</option>
-            </select>
-          </div>
-        </div>
-
-        <button id="btnCriarPedido" class="btn btn-primary" style="width: 100%; margin-bottom: 20px;">
-          <i class="fas fa-folder-open"></i> Abrir Pedido
-        </button>
-
-        <div class="info-box" id="infoPedido" style="display: none;">
-          Pedido aberto para: <strong id="mesaPedidoInfo"></strong>
-        </div>
-
-        <h3 style="color: var(--gold); margin-top: 30px; margin-bottom: 15px;">
-          <i class="fas fa-utensils"></i> Adicionar Itens
-        </h3>
-
-        <div class="form-row-full">
-          <div class="form-group">
-            <label for="produtoPedido">Produto</label>
-            <select id="produtoPedido">
-              <option value="">-- Escolha um produto --</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="quantidadePedido">Quantidade</label>
-            <input type="number" id="quantidadePedido" value="1" min="1">
-          </div>
-          <div class="form-group">
-            <label for="precoProduto">Preço</label>
-            <input type="text" id="precoProduto" readonly style="background: rgba(200, 155, 60, 0.1);">
-          </div>
-        </div>
-
-        <button id="btnAdicionarItem" class="btn btn-add" style="width: 100%;">
-          <i class="fas fa-plus"></i> Adicionar ao Pedido
-        </button>
+    <footer class="footer-bar">
+      <div class="footer-inner">
+        <span class="footer-icon">
+          <i class="fas fa-fire"></i>
+        </span>
+        <p>© 2026 - Sistema de Controle de Restaurante | Cristian & João</p>
       </div>
+    </footer>
 
-      <!-- Painel Direito: Resumo do Pedido -->
-      <div class="form-container">
-        <h2><i class="fas fa-receipt"></i> Resumo do Pedido</h2>
-
-        <div id="pedidoResumo">
-          <div class="info-box">
-            <i class="fas fa-info-circle"></i> Abra um pedido para começar
-          </div>
-        </div>
-
-        <div class="total-section" id="totalSection"
-          style="display: none; flex-direction: column; align-items: flex-end; gap: 20px;">
-          <div style="width: 100%; text-align: right;">
-            <p style="margin-bottom: 10px;">Total do Pedido:</p>
-            <div class="total-amount" id="totalPedido">R$ 0,00</div>
-          </div>
-
-          <div style="width: 100%; display: flex; gap: 10px;">
-            <button id="btnLimparPedido" class="btn btn-secondary" style="flex: 1;">
-              <i class="fas fa-redo"></i> Novo Pedido
-            </button>
-            <button id="btnFinalizarVenda" class="btn btn-primary" style="flex: 1;">
-              <i class="fas fa-check"></i> Finalizar Venda
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Tabela de Pedidos Abertos -->
-    <div class="table-container">
-      <div class="table-header">
-        <h2><i class="fas fa-list"></i> Pedidos Abertos</h2>
-      </div>
-      <div id="tabelaPedidos">
-        <div class="empty-state">
-          <i class="fas fa-inbox"></i>
-          <p>Nenhum pedido aberto</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <footer class="footer-bar">
-    <div class="footer-inner">
-      <span class="footer-icon">
-        <i class="fas fa-fire"></i>
-      </span>
-      <p>© 2026 - Sistema de Controle de Restaurante | Cristian & João</p>
-    </div>
-  </footer>
-
-  <script src="../mainpage/js/script.js"></script>
-  <script src="js/script.js"></script>
-</body>
-
+    <script src="../mainpage/js/script.js"></script>
+    <script src="js/script.js"></script>
+  </body>
 </html>
