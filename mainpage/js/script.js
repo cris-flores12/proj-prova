@@ -753,15 +753,49 @@ function inicializarSistema() {
  * Configura navegação entre abas
  */
 function configurarNavegacao() {
-    const links = document.querySelectorAll('.navbar a');
+    const links = Array.from(document.querySelectorAll('.navbar a'));
+    const sections = links
+        .map(link => link.getAttribute('href'))
+        .filter(href => href && href.startsWith('#'))
+        .map(href => document.querySelector(href))
+        .filter(Boolean);
+
+    function atualizarAtivoPorScroll() {
+        const offset = 120;
+        const scrollPosition = window.scrollY + offset;
+        let currentSection = sections[0];
+
+        sections.forEach(section => {
+            if (section.offsetTop <= scrollPosition) {
+                currentSection = section;
+            }
+        });
+
+        links.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === `#${currentSection.id}`);
+        });
+    }
 
     links.forEach(link => {
-        link.addEventListener('click', () => {
-            // Permite o comportamento normal do link.
-            // Isso garante a navegação entre páginas e seções.
-            console.log(`Navegando para: ${link.getAttribute('href')}`);
+        link.addEventListener('click', (event) => {
+            links.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                const target = document.querySelector(href);
+                if (target) {
+                    const offset = 90;
+                    const topPosition = target.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top: topPosition, behavior: 'smooth' });
+                    event.preventDefault();
+                }
+            }
         });
     });
+
+    window.addEventListener('scroll', atualizarAtivoPorScroll);
+    atualizarAtivoPorScroll();
 }
 
 /**
@@ -772,26 +806,44 @@ function configurarEventosCards() {
 
     cards.forEach(card => {
         card.addEventListener('click', () => {
-            const titulo = card.querySelector('h3').textContent;
+            const destino = card.dataset.target;
+            const titulo = card.querySelector('h3')?.textContent?.trim() || 'Card';
             console.log(`Acessando: ${titulo}`);
 
-            // Aqui você pode adicionar lógica para redirecionar para as páginas específicas
-            switch (titulo) {
-                case 'Produtos':
+            if (destino) {
+                if (destino.startsWith('#')) {
+                    const target = document.querySelector(destino);
+                    if (target) {
+                        const offset = 90;
+                        const topPosition = target.getBoundingClientRect().top + window.scrollY - offset;
+                        window.scrollTo({ top: topPosition, behavior: 'smooth' });
+                    }
+                } else {
+                    window.location.href = destino;
+                }
+                return;
+            }
+
+            switch (titulo.toLowerCase()) {
+                case 'produtos':
                     window.location.href = 'produtos/index.html';
                     break;
-                case 'Mesas':
+                case 'mesas':
                     window.location.href = 'mesas/index.html';
                     break;
-                case 'Pedidos':
+                case 'pedidos':
                     window.location.href = 'pedidos/index.html';
                     break;
-                case 'Relatórios':
-                    // window.location.href = 'relatorios/index.html';
+                case 'relatórios':
+                case 'relatorios':
                     exibirRelatorios();
                     break;
+                default:
+                    console.warn(`Navegação desconhecida para o card: ${titulo}`);
             }
         });
+
+        card.style.cursor = 'pointer';
     });
 }
 
@@ -895,35 +947,6 @@ function testarSistema() {
 
     console.log('%c✅ TESTES CONCLUÍDOS!', 'color: #C89B3C; font-weight: bold; font-size: 14px;');
 }
-
-// Eventos dos cards
-document.querySelectorAll('.card').forEach((card, index) => {
-    card.style.cursor = 'pointer';
-    card.addEventListener('click', () => {
-        const titles = ['Produtos', 'Mesas', 'Pedidos', 'Relatórios'];
-        const links = [
-            'produtos/index.html',
-            'mesas/index.html',
-            'pedidos/index.html',
-            'relatorios/index.html'
-        ];
-
-        const title = titles[index];
-        const link = links[index];
-
-        console.log(`Redirecionando para ${title}...`);
-        window.location.href = link;
-    });
-
-    // Efeito visual ao passar mouse
-    card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-8px)';
-    });
-
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0)';
-    });
-});
 
 // ================================================
 // 12. EVENT LISTENER - EXECUTA AO CARREGAR A PÁGINA

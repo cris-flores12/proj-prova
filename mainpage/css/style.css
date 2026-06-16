@@ -316,6 +316,7 @@ section {
 }
 
 .card {
+  display: block;
   position: relative;
   background: rgba(255, 255, 255, 0.02);
   border: 1.5px solid rgba(200, 155, 60, 0.45);
@@ -325,6 +326,9 @@ section {
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
   text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
 
 .card::before {
