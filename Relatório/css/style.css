@@ -1,0 +1,219 @@
+/* Paleta de Cores: Temática Churrascaria Querência */
+:root {
+    --bg-primary: #fdfbf7;      /* Fundo levemente amarelado/rústico */
+    --card-bg: #ffffff;
+    --text-main: #2b1810;       /* Marrom bem escuro para textos */
+    --text-muted: #7c6a62;
+    --accent-color: #9a1c1c;     /* Vermelho Brasa/Carne */
+    --accent-hover: #741111;
+    --amber-gold: #d97706;       /* Tom dourado de assados */
+    --danger: #b91c1c;
+    --border-color: #eddcd2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+}
+
+/* Navbar Temática */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2b1810; /* Fundo escuro rústico para o topo */
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.nav-logo {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+}
+.nav-logo i {
+    color: var(--amber-gold);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #eddcd2;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-item.active {
+    color: var(--amber-gold);
+    border-bottom: 2px solid var(--amber-gold);
+    padding-bottom: 2px;
+}
+
+/* Container */
+.main-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(43, 24, 16, 0.05);
+    border: 1px solid var(--border-color);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon-title {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0.5rem 0 1.5rem 0;
+}
+
+/* Grid de Métricas Responsivo */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.metric-card {
+    padding: 1.25rem;
+    border-radius: 8px;
+    border-left: 5px solid;
+    color: #2b1810;
+}
+
+.metric-card i {
+    margin-right: 5px;
+}
+
+.metric-card.red { background-color: #fef2f2; border-left-color: var(--accent-color); }
+.metric-card.amber { background-color: #fffbeb; border-left-color: var(--amber-gold); }
+.metric-card.brown { background-color: #fcf6f0; border-left-color: #7c6a62; }
+
+.metric-card h3 {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.metric-card p {
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-top: 0.25rem;
+}
+
+/* Filtro/Pesquisa */
+.search-container {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.search-box {
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+}
+
+.search-box input {
+    width: 100%;
+    padding: 0.75rem 0.75rem 0.75rem 2.3rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    background-color: #fffdfb;
+}
+
+.search-box input:focus {
+    border-color: var(--accent-color);
+}
+
+/* Tabelas e Responsividade Móvel */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-top: 0.75rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.95rem;
+    min-width: 550px;
+}
+
+th, td {
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    background-color: #fcf9f5;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+/* Botão de Estorno */
+.btn-danger {
+    background-color: var(--danger);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-danger:hover {
+    background-color: #911212;
+}
+
+/* Ajuste Mobile */
+@media (max-width: 600px) {
+    .navbar { flex-direction: column; gap: 0.75rem; text-align: center; padding: 1rem; }
+    .nav-links { gap: 1.2rem; }
+    .card { padding: 1.25rem; }
+}

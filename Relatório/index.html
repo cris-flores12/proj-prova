@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Churrascaria Querência - Painel de Relatórios</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-logo">
+            <i class="fa-solid fa-fire-burner"></i> Churrascaria Querência
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-item">Início</a></li>
+            <li><a href="#" class="nav-item">Fechamento</a></li>
+            <li><a href="#" class="nav-item active">Relatórios</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-container">
+        <section id="tela-relatorios" class="card">
+            
+            <div class="card-header">
+                <i class="fa-solid fa-chart-pie icon-title"></i>
+                <h2>Dashboard de Vendas & Caixa</h2>
+            </div>
+            <p class="subtitle">Controle de faturamento, ticket médio e histórico de espetos corridos salvos no LocalStorage.</p>
+            
+            <div class="metrics-grid">
+                <div class="metric-card red">
+                    <h3><i class="fa-solid fa-money-bill-wave"></i> Faturamento Bruto</h3>
+                    <p id="metric-faturamento">R$ 0,00</p>
+                </div>
+                <div class="metric-card amber">
+                    <h3><i class="fa-solid fa-utensils"></i> Mesas Encerradas</h3>
+                    <p id="metric-quantidade">0</p>
+                </div>
+                <div class="metric-card brown">
+                    <h3><i class="fa-solid fa-calculator"></i> Ticket Médio por Mesa</h3>
+                    <p id="metric-ticket">R$ 0,00</p>
+                </div>
+            </div>
+
+            <div class="search-container">
+                <label for="search-input">Buscar no Histórico de Mesas:</label>
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="search-input" placeholder="Digite o número da mesa ou a forma de pagamento..." oninput="filtrarHistorico()">
+                </div>
+            </div>
+
+            <h3>Histórico de Ocupação & Caixas Fechados</h3>
+            <div class="table-responsive">
+                <table id="tabela-historico">
+                    <thead>
+                        <tr>
+                            <th>Mesa</th>
+                            <th>Forma de Pagamento</th>
+                            <th>Valor Total (com 10%)</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpo-tabela-historico">
+                        </tbody>
+                </table>
+            </div>
+
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
