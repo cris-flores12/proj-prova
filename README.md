@@ -75,9 +75,9 @@ Um sistema completo de gerenciamento de restaurante desenvolvido em **JavaScript
 - **Recuperável**: Pode exportar dados em qualquer momento
 
 ### 🌍 Compatibilidade
-- **Funciona em**: Chrome, Firefox, Safari, Edge e navegadores modernos
-- **Desktop e Mobile**: Responsivo, adapta-se a qualquer tela
-- **Padrão Web**: Usa apenas HTML5, CSS3 e JavaScript vanilla
+- **Funciona em**: Chrome, Firefox, Safari, Edge.
+- **Desktop e Mobile**: Responsivo, adapta-se a qualquer tela.
+- **Padrão Web**: Usa apenas HTML5, CSS3 e JavaScript.
 
 ### 📱 Características Técnicas
 - **LocalStorage**: ~5-10MB de espaço para dados
@@ -130,22 +130,8 @@ proj-prova-1/
 ## 🚀 Como Começar
 
 ### 1️⃣ Abrir o Projeto
-
-**Opção A - Direto no Navegador:**
-- Simplesmente clique duas vezes em `index.html`
-- Ou arraste o arquivo para o navegador
-
-**Opção B - Com Servidor Local (Recomendado):**
-```bash
-# Python 3:
-python -m http.server 8000
-
-# Ou com Node.js:
-npx http-server
-
-# Depois acesse:
-http://localhost:8000
-```
+**Acesse por esse link!**
+https://cris-flores12.github.io/proj-prova/
 
 ### 2️⃣ Navegar no Sistema
 - **Início**: Dashboard com visão geral
@@ -232,7 +218,6 @@ fecharConta({ formaPagamento: 'Pix' });
 - **Ícones**: Font Awesome 6.4.0 (CDN)
 - **Fontes**: Google Fonts (Playfair Display, Cinzel, Inter, Montserrat)
 - **Navegadores**: Chrome, Firefox, Safari, Edge e compatíveis
-- **Frameworks**: ❌ Nenhum (JavaScript puro!)
 
 ## 📝 Arquivos Principais
 
@@ -266,13 +251,13 @@ fecharConta({ formaPagamento: 'Pix' });
 
 ## �👨‍💻 Desenvolvido por
 
-**Cristian & João** - Projeto Acadêmico 2026
+**Cristian & João** - Trabalho Pratico WEB I 2026
 
 ---
 
 <div align="center">
 
-### 🍖 Sistema de Controle de Restaurante - Churrascaria Querência 🍖
+### Sistema de Controle de Restaurante - Churrascaria Querência
 
 
 </div>
