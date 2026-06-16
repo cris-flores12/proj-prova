@@ -274,8 +274,5 @@ fecharConta({ formaPagamento: 'Pix' });
 
 ### 🍖 Sistema de Controle de Restaurante - Churrascaria Querência 🍖
 
-**Desenvolvido com ❤️ em JavaScript Vanilla**
-
-*Para gerenciar seu restaurante sem complicações*
 
 </div>
