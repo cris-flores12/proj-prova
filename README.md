@@ -1,4 +1,4 @@
-# 🍖 Churrascaria Querência - Sistema de Controle de Restaurante
+# Churrascaria Querência - Sistema de Controle de Restaurante
 
 Um sistema completo de gerenciamento de restaurante desenvolvido em **JavaScript Vanilla** (sem frameworks ou bibliotecas externas).
 
