@@ -37,7 +37,6 @@ Um sistema completo de gerenciamento de restaurante desenvolvido em **JavaScript
 - Visualizar resumo em tempo real com cálculo automático do total
 - Atualizar status da mesa conforme o pedido está aberto ou fechado
 - Finalizar venda com múltiplas formas de pagamento (Dinheiro, Pix, Cartão)
-- Calcular troco automaticamente
 - Registrar todas as vendas realizadas
 
 ### 📊 Relatórios e Análises
