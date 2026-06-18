@@ -10,7 +10,7 @@ Um sistema completo de gerenciamento de restaurante desenvolvido em **JavaScript
 ✅ **Fechamento de Contas** - Calcular troco, registrar vendas  
 ✅ **Relatórios** - Faturamento, produtos vendidos, análises  
 ✅ **LocalStorage** - Persistência de dados  
-✅ **Interface Premium** - Dark theme com cores quentes  
+✅ **Interface** - Dark theme com cores quentes  
 ✅ **Responsivo** - Funciona em desktop e mobile  
 
 ---
