@@ -203,7 +203,7 @@ Consulte **EXEMPLOS_PRATICOS.js** para 12 exemplos práticos completos.
 // 1. Criar pedido
 criarPedido(1);
 
-// 2. Adicionar items
+// 2. Adicionar itens
 adicionarItemPedido(1, 2);
 adicionarItemPedido(4, 1);
 
