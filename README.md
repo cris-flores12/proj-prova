@@ -64,7 +64,7 @@ Um sistema completo de gerenciamento de restaurante desenvolvido em **JavaScript
 - **Sem Complicações**: Interface organizada, formulários objetivos
 
 ### ⚡ Desempenho
-- **Totalmente Offline**: Funciona 100% no navegador, sem dependência de servidor
+- **Totalmente Offline**: Funciona offline no navegador, desde que a página esteja carregada localmente
 - **Rápido**: Operações instantâneas no LocalStorage
 - **Leve**: Sem frameworks pesados, apenas JavaScript puro
 
