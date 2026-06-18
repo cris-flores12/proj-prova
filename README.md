@@ -40,7 +40,7 @@ Um sistema completo de gerenciamento de restaurante desenvolvido em **JavaScript
 - Registrar todas as vendas realizadas
 
 ### 📊 Relatórios e Análises
-- Visualizar total de produtos, mesas e vendas
+- Visualização total de produtos, mesas e vendas
 - Acompanhar status de todas as mesas
 - Ver produto mais vendido
 - Analisar formas de pagamento utilizadas
@@ -89,7 +89,7 @@ Um sistema completo de gerenciamento de restaurante desenvolvido em **JavaScript
 ## 📂 Estrutura do Projeto
 
 ```
-proj-prova-1/
+proj-prova/
 ├── index.html                         # Página inicial/Dashboard
 ├── mainpage/
 │   ├── js/
